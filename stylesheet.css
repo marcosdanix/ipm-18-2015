@@ -1,0 +1,34 @@
+/*thanks to https://css-tricks.com/perfect-full-page-background-image/*/
+body {
+  background: url("concert_background_blurred.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+div.license {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  font-size: 0.75em;
+  background-color: black;
+}
+
+div.screen {
+  width: 3.6cm; 
+  height: 3.6cm;
+  border-radius: 50%;
+  background-color: pink;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+    
+div.screen img {
+  width: 1in;
+  height: 1in;
+} 
