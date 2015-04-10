@@ -1,24 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="iRave">
 <head>
   <meta charset="utf-8"/>
   <title>Circle</title>
   <link rel="stylesheet" href="css/stylesheet.css" />
-  <script src="js/angular.min.js"></script>
+  <script type="text/javascript"  src="js/angular.min.js"></script>
+  <script type="text/javascript"  src="js/irave.js"></script>
+  <script type="text/ng-template" id="licenseTemplate">
+    <div class="license">
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Creative Commons License" style="border-width:0" src="img/cc-by-nc.png" />
+      </a>
+      <a href="https://www.flickr.com/photos/anirudhkoul/3804551632/in/gallery-52003542@N07-72157624486289768/">
+        <span id="atribution">Original image by Anirudh Koul</span>
+      </a>
+    </div>
+  </script>
 </head>
+
+
 <body>
 
 <div class="screen">
+  Hello, Bitches! Hello, Bitches! Hello, Bitches! Hello, Bitches! Hello, Bitches!
 </div>
 
-<div class="license">
-  <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
-    <img alt="Creative Commons License" style="border-width:0" src="img/cc-by-nc.png" />
-  </a>
-  <a href="https://www.flickr.com/photos/anirudhkoul/3804551632/in/gallery-52003542@N07-72157624486289768/">
-    <span id="atribution">Original image by Anirudh Koul</span>
-  </a>
-</div>
+<img-license></img-license>
 
 </body>
 </html>
