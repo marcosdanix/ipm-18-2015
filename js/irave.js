@@ -35,7 +35,7 @@
         this.mainscreen = 'PASSE\nNO LEITOR'
         this.passeNoLeitor = function() {
           if (saldo > 3.00) {controller.state = new ItemsBought(controller);}
-          else {controller.state = new Initial(controller);}
+          else {controller.state = new PurchaseFailure(controller);}
         }
         
         this.leftButtonText = '←';
@@ -63,6 +63,7 @@
           '.........€3.00'
         ];
         $('ul.scroll').css('top', '10%').css('left', '-10%');
+        
         this.undo = function() {
           $('ul.scroll').css('top', '').css('left', '');
         }
@@ -83,6 +84,7 @@
         this.rightButtonText = '→';
         this.doRightButton = function() {
           this.undo();
+          saldo -= 3.00;
           controller.state = new PurchaseSuccess(controller);
         };
       }
@@ -101,8 +103,25 @@
         this.doRightButton = function() {
           controller.state = new PasseNoLeitor(controller);
         };
+      }  
       
-      }   
+      var PurchaseFailure = function(controller) {
+        this.titlebar = "Pagar";
+        this.mainscreen = "Preço: €3.00\nSaldo: €1.20\nSaldo Insuficiente";
+        
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.state = new PasseNoLeitor(controller);
+        }
+        
+        this.middleButtonText = '⌂';        
+        this.middleButtonStyle = {'font-size': '150%'};
+        this.doMiddleButton = function() {
+          controller.state = new Initial(controller);
+        }
+      }
+      
+         
 
         
       this.state = new Initial(this);    
