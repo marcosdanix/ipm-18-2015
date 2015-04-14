@@ -33,13 +33,14 @@ div.screen {
 div.mainscreen {
   color: inherit;
   font-family: inherit;
-  font-weight: bold;
+  #font-weight: bold;
   position: relative;
   top: 50%;
   left: 50%;
   margin-right: -50%;
   text-align: center;
   transform: translate(-50%, -50%);
+  white-space: pre-wrap;
 }
 
 div.button {
@@ -68,6 +69,48 @@ div.mid-button {
 div.right-button {
   position: absolute;
   top: 70%;
-  left: 75%;
-  
+  left: 75%;  
+}
+
+div.titlebar {
+  position: absolute;
+  top: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-decoration: underline;
+}
+
+#more-up {
+  color: inherit;
+  font-weight: bold;    
+  position: absolute;
+  top: 20%;
+  left:80%;
+}
+
+#more-down {
+  color: inherit;
+  font-weight: bold;
+  position: absolute;
+  top: 60%;
+  left: 80%;
+}       
+
+div.scrollPointer .left {
+  position: absolute;
+  top:45%;
+  left: 3%;
+}
+
+div.scrollPointer .right {
+  position: absolute;
+  top: 45%;
+  left: 90%;
+}
+
+ul.scroll {
+  list-style-type: none;
+  position: absolute;
+  top: 10%;
+  left: -10%;
 }

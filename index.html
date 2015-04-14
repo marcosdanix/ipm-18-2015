@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <title>Circle</title>
   <link rel="stylesheet" href="css/stylesheet.css" />
+  <script type="text/javascript"  src="js/jquery-2.1.3.min.js"></script>
   <script type="text/javascript"  src="js/angular.min.js"></script>
   <script type="text/javascript"  src="js/irave.js"></script>
   <!-- AngularJS templates have to be inlined in this file -->
@@ -23,21 +24,39 @@
 <body>
 
 <div ng-controller="ScreenController as screen" class="screen">
+    <!-- Titlebar -->
+    <div class="titlebar">{{screen.state.titlebar}}</div>
+    
     <!-- Main display -->
-    <div id="mainDisplay" class="mainscreen">{{screen.display}}</div>
+    <div id="mainDisplay" class="mainscreen">{{screen.state.mainscreen}}</div>
    
     <!-- buttons -->
     <div class="button left-button"  
-         ng-click="screen.doLeftButton()"
-         ng-show="screen.leftButton"><a href="#">{{screen.leftButton}}</a></div>
+         ng-click="screen.state.leftButton()"
+         ng-show="screen.state.left_button"><a href="#">{{screen.state.left_button}}</a></div>
+         
     <div class="button mid-button"
-         ng-click="screen.doMiddleButton()"
-         ng-show="screen.midButton"><a href="#">{{screen.midButton}}</a></div>
+         ng-click="screen.state.middleButton()"
+         ng-show="screen.state.mid_button"><a href="#">{{screen.state.mid_button}}</a></div>
+         
     <div class="button right-button" 
-         ng-click="screen.doRightButton()"
-         ng-show="screen.rightButton"><a href="#">{{screen.rightButton}}</a></div>
+         ng-click="screen.rightButton()"
+         ng-show="screen.right_button"><a href="#">{{screen.state.right_button}}</a></div>
    
    <!-- scroll -->
+   <div class="scrollPointer" ng-show="screen.hasScroll">
+     <div class="left">  &gt </div>
+     <div class="right"> &lt </div>
+     <!-- mudar estilo consoante se há mais ou não -->
+     <div id="more-up"   ng-class="screen.state.moreUpStyle">   &#8657 </div>
+     <div id="more-down" ng-class="screen.state.moreDownStyle"> &#8659 </div>
+   </div>
+   <ul class="scroll" ng-style="screen.state.scrollStyle">
+     <li class="scroll-element" 
+         ng-repeat="scrollElement in screen.state.visibleScrollElements">
+       {{scrollElement}}
+     </li>
+   </ul>
     
 </div>
 
