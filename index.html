@@ -32,19 +32,22 @@
    
     <!-- buttons -->
     <div class="button left-button"  
-         ng-click="screen.state.leftButton()"
-         ng-show="screen.state.left_button"><a href="#">{{screen.state.left_button}}</a></div>
+         ng-click="screen.state.doLeftButton()"
+         ng-style="screen.state.leftButtonStyle"
+         ng-show="screen.state.leftButtonText"><a href="#">{{screen.state.leftButtonText}}</a></div>
          
     <div class="button mid-button"
-         ng-click="screen.state.middleButton()"
-         ng-show="screen.state.mid_button"><a href="#">{{screen.state.mid_button}}</a></div>
+         ng-click="screen.state.doMiddleButton()"
+         ng-style="screen.state.middleButtonStyle"
+         ng-show="screen.state.middleButtonText"><a href="#">{{screen.state.middleButtonText}}</a></div>
          
     <div class="button right-button" 
-         ng-click="screen.rightButton()"
-         ng-show="screen.right_button"><a href="#">{{screen.state.right_button}}</a></div>
+         ng-click="screen.state.doRightButton()"
+         ng-style="screen.state.rightButtonStyle"
+         ng-show="screen.state.rightButtonText"><a href="#">{{screen.state.rightButtonText}}</a></div>
    
    <!-- scroll -->
-   <div class="scrollPointer" ng-show="screen.hasScroll">
+   <div class="scrollPointer" ng-show="screen.state.hasScroll">
      <div class="left">  &gt </div>
      <div class="right"> &lt </div>
      <!-- mudar estilo consoante se há mais ou não -->
