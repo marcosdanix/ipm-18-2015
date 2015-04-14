@@ -28,12 +28,11 @@
     <div class="titlebar">{{screen.state.titlebar}}</div>
     
     <!-- Main display -->
-    <div id="mainDisplay" class="mainscreen">{{screen.state.mainscreen}}</div>
+    <div id="mainDisplay" class="mainscreen" ng-click="screen.state.passeNoLeitor()">{{screen.state.mainscreen}}</div>
    
     <!-- buttons -->
     <div class="button left-button"  
          ng-click="screen.state.doLeftButton()"
-         ng-style="screen.state.leftButtonStyle"
          ng-show="screen.state.leftButtonText"><a href="#">{{screen.state.leftButtonText}}</a></div>
          
     <div class="button mid-button"
@@ -43,7 +42,6 @@
          
     <div class="button right-button" 
          ng-click="screen.state.doRightButton()"
-         ng-style="screen.state.rightButtonStyle"
          ng-show="screen.state.rightButtonText"><a href="#">{{screen.state.rightButtonText}}</a></div>
    
    <!-- scroll -->
@@ -51,8 +49,8 @@
      <div class="left">  &gt </div>
      <div class="right"> &lt </div>
      <!-- mudar estilo consoante se há mais ou não -->
-     <div id="more-up"   ng-class="screen.state.moreUpStyle">   &#8657 </div>
-     <div id="more-down" ng-class="screen.state.moreDownStyle"> &#8659 </div>
+     <div id="more-up"   ng-style="screen.state.moreUpStyle">   &#8657 </div>
+     <div id="more-down" ng-style="screen.state.moreDownStyle"> &#8659 </div>
    </div>
    <ul class="scroll" ng-style="screen.state.scrollStyle">
      <li class="scroll-element" 

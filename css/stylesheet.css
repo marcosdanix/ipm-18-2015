@@ -43,6 +43,11 @@ div.mainscreen {
   white-space: pre-wrap;
 }
 
+div.mainscreen a {
+  color: inherit;
+  text-decoration: none;
+}
+
 div.button {
  color: inherit;
  font-family: inherit;
