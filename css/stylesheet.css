@@ -130,3 +130,46 @@ ul.scroll {
 li.scroll-element {
   white-space: pre-wrap;
 }
+
+#leftbutton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-0.8in, 0.45in);
+}
+
+#midbutton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0.75in);
+}
+
+#rightbutton {
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(0.6in, 0.4in);
+}
+
+div.irave-background {
+  background-color: #1F1F1F;
+  width: 2.2in;
+  height: 2.2in;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+div.irave-background p {
+  color: white;
+  font-weight: bold;
+  font-family: sans-serif;
+  position: absolute;
+  left:50%;
+  top:-2.5%;
+  transform: translateX(-40%);
+}

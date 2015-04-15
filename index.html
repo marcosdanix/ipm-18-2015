@@ -23,6 +23,8 @@
 
 <body>
 
+<div class="irave-background"><p>iRave™</div>
+
 <div ng-controller="ScreenController as screen" class="screen">
     <!-- Titlebar -->
     <div class="titlebar">{{screen.state.titlebar}}</div>
@@ -58,9 +60,12 @@
    </div>
    <ul class="scroll" ng-style="screen.state.scrollStyle">
      <li class="scroll-element" ng-repeat="scrollElement in screen.state.visibleScrollElements">{{scrollElement}}</li>
-   </ul>
-    
+   </ul>    
 </div>
+
+<img id="leftbutton" src="img/button.png"></img>
+<img id="midbutton" src="img/button.png"></img>
+<img id="rightbutton" src="img/button.png"></img>
 
 <img-license></img-license>
 
