@@ -86,20 +86,28 @@ div.titlebar {
 }
 
 #more-up {
-  color: inherit;
   font-weight: bold;    
   position: absolute;
   top: 20%;
   left:80%;
 }
 
-#more-down {
+#more-up  a{
   color: inherit;
+  text-decoration: none;
+}
+
+#more-down {
   font-weight: bold;
   position: absolute;
   top: 60%;
   left: 80%;
-}       
+}
+
+#more-down a {
+  color: inherit;
+  text-decoration: none;
+}
 
 div.scrollPointer .left {
   position: absolute;
@@ -116,4 +124,9 @@ div.scrollPointer .right {
 ul.scroll {
   list-style-type: none;
   position: absolute;
+  top:22%;  
+}
+
+li.scroll-element {
+  white-space: pre-wrap;
 }

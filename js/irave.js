@@ -5,8 +5,10 @@
     
   app.controller('ScreenController', 
                  [ 'dateFilter', 
-                   'currencyFilter', 
+                   'currencyFilter',
     function(dateFilter, currencyFilter) {
+      var transparent = {'opacity':'0.5'};
+    
       var Initial = function(controller) {
         this.mainscreen = dateFilter(new Date(), "HH:mm")
                           .concat("\nSaldo: ")
@@ -15,18 +17,59 @@
         this.rightButtonText = 'MENU';
         this.doRightButton = function() {
           $('div.right-button').css('font-size', '');
-          controller.state = new PasseNoLeitor(controller);
+          controller.state = new Menu(controller);
         };
       };
       
       var Menu = function(controller) {        
+        this.titlebar = "Menu"; 
+        this.index = 0;
+        
         this.middleButtonText = '⌂';
         this.middleButtonStyle = {'font-size': '150%'};
         this.doMiddleButton = function() {
           controller.state = new Initial(controller);
         }
         
-        this.rightButtonText = '→';        
+        this.rightButtonText = '→';
+        this.doRightButton = function() {
+          if (this.index == 0) {
+            controller.state = new PasseNoLeitor(controller);          
+          } else {
+            controller.state = new NotImplemented(controller);
+          }
+        }        
+        
+        this.hasScroll = true;
+        this.scroll = [
+          '\n',
+          'Pagar',
+          'Fila',
+          'Percurso'
+        ];
+        this.maxIndex = this.scroll.length-2;
+        
+        this.updateScroll = function () {
+          this.visibleScrollElements = this.scroll.slice(this.index, this.index+3);
+          this.moreUpStyle = this.index == 0 ? transparent : undefined;
+          this.moreDownStyle = this.index == this.maxIndex ? transparent : undefined;
+        }
+        
+        this.scrollUp = function() {
+          if (this.index > 0) {
+            this.index -= 1;
+            this.updateScroll();
+          }
+        }; 
+
+        this.scrollDown = function() {
+          if (this.index < this.maxIndex) {
+            this.index += 1;
+            this.updateScroll();
+          }
+        }        
+        
+        this.updateScroll();        
       };
       
       
@@ -40,7 +83,7 @@
         
         this.leftButtonText = '←';
         this.doLeftButton = function() {
-          controller.state = new Initial(controller);
+          controller.state = new Menu(controller);
         }
         
         this.middleButtonText = '⌂';
@@ -121,10 +164,20 @@
         }
       }
       
-         
-
+      var NotImplemented = function(controller) {
+        this.titlebar = 'Erro';
+        this.mainscreen = 'NÃO ESTÁ\nIMPLEMENTADO!';
+        var color = $('div.mainscreen').css('color');
+        $('div.mainscreen').css('color','yellow');
         
-      this.state = new Initial(this);    
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          $('div.mainscreen').css('color', color);
+          controller.state = new Menu(controller);
+        }
+      }
+        
+      this.state = new Initial(this);
     }]);
   
   //The license in the bottom of the page

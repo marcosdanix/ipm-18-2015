@@ -49,14 +49,15 @@
      <div class="left">  &gt </div>
      <div class="right"> &lt </div>
      <!-- mudar estilo consoante se há mais ou não -->
-     <div id="more-up"   ng-style="screen.state.moreUpStyle">   &#8657 </div>
-     <div id="more-down" ng-style="screen.state.moreDownStyle"> &#8659 </div>
+     <div id="more-up"   
+          ng-style="screen.state.moreUpStyle">
+       <a href="#" ng-click="screen.state.scrollUp()">   &#8657</a></div>
+     <div id="more-down" 
+          ng-style="screen.state.moreDownStyle">
+       <a href="#" ng-click="screen.state.scrollDown()"> &#8659 </a></div>
    </div>
    <ul class="scroll" ng-style="screen.state.scrollStyle">
-     <li class="scroll-element" 
-         ng-repeat="scrollElement in screen.state.visibleScrollElements">
-       {{scrollElement}}
-     </li>
+     <li class="scroll-element" ng-repeat="scrollElement in screen.state.visibleScrollElements">{{scrollElement}}</li>
    </ul>
     
 </div>
