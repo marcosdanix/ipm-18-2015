@@ -17,8 +17,6 @@ var transparent = {'opacity':'0.5'};
       
       ScrollProto.__proto__ = HomeButtonProto;
       
-      
-      
        
      
       var Initial = function(controller) {
@@ -29,7 +27,7 @@ var transparent = {'opacity':'0.5'};
         this.rightButtonText = 'MENU';
         this.doRightButton = function() {
           $('div.right-button').css('font-size', '');
-          controller.state = new Menu(controller);
+          controller.nextState(new Menu(controller));
         };
       };
       
@@ -38,15 +36,15 @@ var transparent = {'opacity':'0.5'};
         this.index = 0;
         
         this.doMiddleButton = function() {
-          controller.state = new Initial(controller);
+          controller.goHome();
         }
         
         this.rightButtonText = '→';
         this.doRightButton = function() {
           if (this.index == 0) {
-            controller.state = new PasseNoLeitor(controller);          
+            controller.nextState(new PasseNoLeitor(controller));
           } else {
-            controller.state = new NotImplemented(controller);
+            controller.nextState(new NotImplemented(controller));
           }
         }
         
@@ -93,11 +91,11 @@ var transparent = {'opacity':'0.5'};
         
         this.leftButtonText = '←';
         this.doLeftButton = function() {
-          controller.state = new Menu(controller);
+          controller.prevState();
         }
         
         this.doMiddleButton = function() {
-          controller.state = new Initial(controller);
+          controller.goHome();
         }
       }
       
@@ -124,19 +122,19 @@ var transparent = {'opacity':'0.5'};
         this.leftButtonText = '←';
         this.doLeftButton = function() {
           this.undo();
-          controller.state = new PasseNoLeitor(controller);
+          controller.prevState();
         }
         
         this.doMiddleButton = function() {
           this.undo();
-          controller.state = new Initial(controller);
+          controller.goHome();
         }
         
         this.rightButtonText = '→';
         this.doRightButton = function() {
           this.undo();
           controller.saldo -= 3.00;
-          controller.state = new PurchaseSuccess(controller);
+          controller.nextState(new PurchaseSuccess(controller));
         };
       }
       
@@ -147,11 +145,14 @@ var transparent = {'opacity':'0.5'};
         this.mainscreen = 'SUCESSO\n(thumbs up)\nSaldo: '.concat(controller.currencyFilter(controller.saldo, '€'));
       
         this.doMiddleButton = function() {
-          controller.state = new Initial(controller);
+          controller.goHome();
         };
       
         this.showCart = true;
         this.doRightButton = function() {
+          //this manipulates the stack differently
+          controller.stateStack.pop();
+          controller.stateStack.pop();
           controller.state = new PasseNoLeitor(controller);
         };
       }  
@@ -164,11 +165,11 @@ var transparent = {'opacity':'0.5'};
         
         this.leftButtonText = '←';
         this.doLeftButton = function() {
-          controller.state = new PasseNoLeitor(controller);
+          controller.prevState();
         }
         
         this.doMiddleButton = function() {
-          controller.state = new Initial(controller);
+          controller.goHome();
         }
       }
       
@@ -183,6 +184,6 @@ var transparent = {'opacity':'0.5'};
         this.leftButtonText = '←';
         this.doLeftButton = function() {
           $('div.mainscreen').css('color', color);
-          controller.state = new Menu(controller);
+          controller.prevState();
         }
       }
