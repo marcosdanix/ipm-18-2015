@@ -1,5 +1,11 @@
 var transparent = {'opacity':'0.5'};
-    
+      
+      //Prototypes
+      var HomeButtonProto = {
+        middleButtonText: '⌂', 
+        middleButtonStyle: {'font-size': '150%'},
+      }      
+     
       var Initial = function(controller) {
         this.mainscreen = controller.dateFilter(new Date(), "HH:mm")
                           .concat("\nSaldo: ")
@@ -16,8 +22,6 @@ var transparent = {'opacity':'0.5'};
         this.titlebar = "Menu"; 
         this.index = 0;
         
-        this.middleButtonText = '⌂';
-        this.middleButtonStyle = {'font-size': '150%'};
         this.doMiddleButton = function() {
           controller.state = new Initial(controller);
         }
@@ -29,7 +33,7 @@ var transparent = {'opacity':'0.5'};
           } else {
             controller.state = new NotImplemented(controller);
           }
-        }        
+        }
         
         this.hasScroll = true;
         this.scroll = [
@@ -52,6 +56,7 @@ var transparent = {'opacity':'0.5'};
             this.updateScroll();
           }
         }; 
+        
 
         this.scrollDown = function() {
           if (this.index < this.maxIndex) {
@@ -60,9 +65,10 @@ var transparent = {'opacity':'0.5'};
           }
         }        
         
-        this.updateScroll();        
+        this.updateScroll();
       };
       
+      Menu.prototype = HomeButtonProto;
       
       var PasseNoLeitor = function(controller) {
         this.titlebar = "Pagar";
@@ -77,12 +83,12 @@ var transparent = {'opacity':'0.5'};
           controller.state = new Menu(controller);
         }
         
-        this.middleButtonText = '⌂';
-        this.middleButtonStyle = {'font-size': '150%'};
         this.doMiddleButton = function() {
           controller.state = new Initial(controller);
         }
       }
+      
+      PasseNoLeitor.prototype = HomeButtonProto;
       
       
       var ItemsBought = function(controller) {
@@ -108,8 +114,6 @@ var transparent = {'opacity':'0.5'};
           controller.state = new PasseNoLeitor(controller);
         }
         
-        this.middleButtonText = '⌂';        
-        this.middleButtonStyle = {'font-size': '150%'};
         this.doMiddleButton = function() {
           this.undo();
           controller.state = new Initial(controller);
@@ -123,12 +127,12 @@ var transparent = {'opacity':'0.5'};
         };
       }
       
+      ItemsBought.prototype = HomeButtonProto;
+      
       var PurchaseSuccess = function(controller) {
         this.titlebar = "Pagar";
         this.mainscreen = 'SUCESSO\n(thumbs up)\nSaldo: '.concat(controller.currencyFilter(saldo, '€'));
       
-        this.middleButtonText = '⌂';        
-        this.middleButtonStyle = {'font-size': '150%'};
         this.doMiddleButton = function() {
           controller.state = new Initial(controller);
         };
@@ -139,6 +143,8 @@ var transparent = {'opacity':'0.5'};
         };
       }  
       
+      PurchaseSuccess.prototype = HomeButtonProto;
+      
       var PurchaseFailure = function(controller) {
         this.titlebar = "Pagar";
         this.mainscreen = "Preço: €3.00\nSaldo: €1.20\nSaldo Insuficiente";
@@ -148,12 +154,12 @@ var transparent = {'opacity':'0.5'};
           controller.state = new PasseNoLeitor(controller);
         }
         
-        this.middleButtonText = '⌂';        
-        this.middleButtonStyle = {'font-size': '150%'};
         this.doMiddleButton = function() {
           controller.state = new Initial(controller);
         }
       }
+      
+      PurchaseFailure.prototype = HomeButtonProto;
       
       var NotImplemented = function(controller) {
         this.titlebar = 'Erro';
