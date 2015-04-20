@@ -85,8 +85,8 @@ var transparent = {'opacity':'0.5'};
         this.titlebar = "Pagar";
         this.mainscreen = 'PASSE\nNO LEITOR'
         this.passeNoLeitor = function() {
-          if (controller.saldo > 3.00) {controller.state = new ItemsBought(controller);}
-          else {controller.state = new PurchaseFailure(controller);}
+          if (controller.saldo > 3.00) {controller.nextState(new ItemsBought(controller));}
+          else {controller.nextState(new PurchaseFailure(controller));}
         }
         
         this.leftButtonText = '←';

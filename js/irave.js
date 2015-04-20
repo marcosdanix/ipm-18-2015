@@ -12,9 +12,9 @@
       this.stateStack = new Array();        
       this.state = new Initial(this);
       
-      this.nextState = function(state) {
-        this.stateStack.push(state);
-        this.state = state;
+      this.nextState = function(newState) {
+        this.stateStack.push(this.state);
+        this.state = newState;
       };
       
       this.prevState = function() {
