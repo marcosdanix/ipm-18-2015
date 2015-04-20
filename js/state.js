@@ -6,7 +6,7 @@ var transparent = {'opacity':'0.5'};
         showHome: true,
       };
 
-      var SlideProto = {
+      var ScrollProto = {
         hasScroll: true,
         updateScroll: function () {
           this.visibleScrollElements = this.scroll.slice(this.index, this.index+3);
@@ -15,7 +15,7 @@ var transparent = {'opacity':'0.5'};
         },        
       };
       
-      SlideProto.__proto__ = HomeButtonProto;
+      ScrollProto.__proto__ = HomeButtonProto;
       
       
       
@@ -80,7 +80,7 @@ var transparent = {'opacity':'0.5'};
         this.updateScroll();
       };
       
-      Menu.prototype = SlideProto;
+      Menu.prototype = ScrollProto;
       
       
       var PasseNoLeitor = function(controller) {
