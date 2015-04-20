@@ -4,7 +4,22 @@ var transparent = {'opacity':'0.5'};
       var HomeButtonProto = {
         middleButtonText: '⌂', 
         middleButtonStyle: {'font-size': '150%'},
-      }      
+      };
+
+      var SlideProto = {
+        hasScroll: true,
+        updateScroll: function () {
+          this.visibleScrollElements = this.scroll.slice(this.index, this.index+3);
+          this.moreUpStyle = this.index == 0 ? transparent : undefined;
+          this.moreDownStyle = this.index == this.maxIndex ? transparent : undefined;
+        },        
+      };
+      
+      SlideProto.__proto__ = HomeButtonProto;
+      
+      
+      
+       
      
       var Initial = function(controller) {
         this.mainscreen = controller.dateFilter(new Date(), "HH:mm")
@@ -35,7 +50,6 @@ var transparent = {'opacity':'0.5'};
           }
         }
         
-        this.hasScroll = true;
         this.scroll = [
           '\n',
           'Pagar',
@@ -44,19 +58,12 @@ var transparent = {'opacity':'0.5'};
         ];
         this.maxIndex = this.scroll.length-2;
         
-        this.updateScroll = function () {
-          this.visibleScrollElements = this.scroll.slice(this.index, this.index+3);
-          this.moreUpStyle = this.index == 0 ? transparent : undefined;
-          this.moreDownStyle = this.index == this.maxIndex ? transparent : undefined;
-        }
-        
         this.scrollUp = function() {
           if (this.index > 0) {
             this.index -= 1;
             this.updateScroll();
           }
-        }; 
-        
+        };        
 
         this.scrollDown = function() {
           if (this.index < this.maxIndex) {
@@ -68,7 +75,8 @@ var transparent = {'opacity':'0.5'};
         this.updateScroll();
       };
       
-      Menu.prototype = HomeButtonProto;
+      Menu.prototype = SlideProto;
+      
       
       var PasseNoLeitor = function(controller) {
         this.titlebar = "Pagar";
@@ -131,7 +139,7 @@ var transparent = {'opacity':'0.5'};
       
       var PurchaseSuccess = function(controller) {
         this.titlebar = "Pagar";
-        this.mainscreen = 'SUCESSO\n(thumbs up)\nSaldo: '.concat(controller.currencyFilter(saldo, '€'));
+        this.mainscreen = 'SUCESSO\n(thumbs up)\nSaldo: '.concat(controller.currencyFilter(controller.saldo, '€'));
       
         this.doMiddleButton = function() {
           controller.state = new Initial(controller);
