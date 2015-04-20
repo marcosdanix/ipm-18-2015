@@ -35,16 +35,16 @@
     <div id="mainDisplay" class="mainscreen" ng-click="screen.state.passeNoLeitor()">{{screen.state.mainscreen}}</div>
    
     <!-- buttons -->
-    <div class="button left-button"           
-         ng-show="screen.state.leftButtonText">{{screen.state.leftButtonText}}</div>
+    <div class="button left-button">{{screen.state.leftButtonText}}</div>
          
     <div class="button mid-button"
-         ng-style="screen.state.middleButtonStyle"
-         ng-show="screen.state.middleButtonText">{{screen.state.middleButtonText}}</div>
+         ng-style="screen.state.middleButtonStyle">{{screen.state.middleButtonText}}
+      <img ng-show="screen.state.showHome" src="img/home.png"></img>
+    </div>
          
-    <div class="button right-button" 
-         
-         ng-show="screen.state.rightButtonText">{{screen.state.rightButtonText}}</div>
+    <div class="button right-button">{{screen.state.rightButtonText}}
+      <img ng-show="screen.state.showCart" src="img/plus_cart.png"></img>
+    </div>
    
    <!-- scroll -->
    <div class="scrollPointer" ng-show="screen.state.hasScroll">

@@ -2,8 +2,8 @@ var transparent = {'opacity':'0.5'};
       
       //Prototypes
       var HomeButtonProto = {
-        middleButtonText: '⌂', 
-        middleButtonStyle: {'font-size': '150%'},
+        //middleButtonText: '⌂', 
+        showHome: true,
       };
 
       var SlideProto = {
@@ -145,7 +145,7 @@ var transparent = {'opacity':'0.5'};
           controller.state = new Initial(controller);
         };
       
-        this.rightButtonText = '+';
+        this.showCart = true;
         this.doRightButton = function() {
           controller.state = new PasseNoLeitor(controller);
         };
