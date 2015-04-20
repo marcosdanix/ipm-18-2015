@@ -51,12 +51,17 @@ var transparent = {'opacity':'0.5'};
         }
         
         this.scroll = [
-          '\n',
+          '¯¯¯¯¯',
           'Pagar',
           'Fila',
-          'Percurso'
+          'Percurso',
+          'Amigos',
+          'Transferir',
+          'Concertos',
+          'Meteo',
+          '_____'
         ];
-        this.maxIndex = this.scroll.length-2;
+        this.maxIndex = this.scroll.length-3;
         
         this.scrollUp = function() {
           if (this.index > 0) {
