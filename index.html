@@ -23,9 +23,10 @@
 
 <body>
 
-<div class="irave-background"><p>iRave™</div>
+<div ng-controller="ScreenController as screen" class="irave-background">
+<p>iRave™</p>
 
-<div ng-controller="ScreenController as screen" class="screen">
+<div class="screen">
     <!-- Titlebar -->
     <div class="titlebar">{{screen.state.titlebar}}</div>
     
@@ -33,18 +34,16 @@
     <div id="mainDisplay" class="mainscreen" ng-click="screen.state.passeNoLeitor()">{{screen.state.mainscreen}}</div>
    
     <!-- buttons -->
-    <div class="button left-button"  
-         ng-click="screen.state.doLeftButton()"
-         ng-show="screen.state.leftButtonText"><a href="#">{{screen.state.leftButtonText}}</a></div>
+    <div class="button left-button"           
+         ng-show="screen.state.leftButtonText">{{screen.state.leftButtonText}}</div>
          
     <div class="button mid-button"
-         ng-click="screen.state.doMiddleButton()"
          ng-style="screen.state.middleButtonStyle"
-         ng-show="screen.state.middleButtonText"><a href="#">{{screen.state.middleButtonText}}</a></div>
+         ng-show="screen.state.middleButtonText">{{screen.state.middleButtonText}}</div>
          
     <div class="button right-button" 
-         ng-click="screen.state.doRightButton()"
-         ng-show="screen.state.rightButtonText"><a href="#">{{screen.state.rightButtonText}}</a></div>
+         
+         ng-show="screen.state.rightButtonText">{{screen.state.rightButtonText}}</div>
    
    <!-- scroll -->
    <div class="scrollPointer" ng-show="screen.state.hasScroll">
@@ -63,9 +62,10 @@
    </ul>    
 </div>
 
-<img id="leftbutton" src="img/button.png"></img>
-<img id="midbutton" src="img/button.png"></img>
-<img id="rightbutton" src="img/button.png"></img>
+<img id="leftbutton"  ng-click="screen.state.doLeftButton()"   src="img/button.png"></img>
+<img id="midbutton"   ng-click="screen.state.doMiddleButton()" src="img/button.png"></img>
+<img id="rightbutton" ng-click="screen.state.doRightButton()"  src="img/button.png"></img>
+</div>
 
 <img-license></img-license>
 
