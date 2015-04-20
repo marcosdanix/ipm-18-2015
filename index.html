@@ -29,7 +29,7 @@
 
 <div class="screen">
     <!-- Titlebar -->
-    <div class="titlebar">{{screen.state.titlebar}}</div>
+    <div class="titlebar" ng-style="screen.state.titlebarStyle">{{screen.state.titlebar}}</div>
     
     <!-- Main display -->
     <div id="mainDisplay" class="mainscreen" ng-click="screen.state.passeNoLeitor()">{{screen.state.mainscreen}}</div>
@@ -59,7 +59,9 @@
        <a href="#" ng-click="screen.state.scrollDown()"> &#8659 </a></div>
    </div>
    <ul class="scroll" ng-style="screen.state.scrollStyle">
-     <li class="scroll-element" ng-repeat="scrollElement in screen.state.visibleScrollElements">{{scrollElement}}</li>
+     <li class="scroll-element" 
+         ng-style="screen.state.scrollElementStyle"
+         ng-repeat="scrollElement in screen.state.visibleScrollElements">{{scrollElement}}</li>
    </ul>    
 </div>
 
