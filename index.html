@@ -32,7 +32,10 @@
     <div class="titlebar" ng-style="screen.state.titlebarStyle">{{screen.state.titlebar}}</div>
     
     <!-- Main display -->
-    <div id="mainDisplay" class="mainscreen" ng-click="screen.state.passeNoLeitor()">{{screen.state.mainscreen}}</div>
+    <div id="mainDisplay" 
+         class="mainscreen" 
+         ng-click="screen.state.passeNoLeitor()"
+         ng-style="screen.state.mainscreenStyle">{{screen.state.mainscreen}}</div>
    
     <!-- buttons -->
     <div class="button left-button">{{screen.state.leftButtonText}}</div>
@@ -44,6 +47,7 @@
          
     <div class="button right-button">{{screen.state.rightButtonText}}
       <img ng-show="screen.state.showCart" src="img/plus_cart.png"></img>
+      <img ng-show="screen.state.showRoad" src="img/road.png"></img>
     </div>
    
    <!-- scroll -->

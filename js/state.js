@@ -281,8 +281,7 @@ var transparent = {'opacity':'0.5'};
         
         this.rightButtonText = '→';
         this.doRightButton = function() {
-          //placeholder
-          controller.nextState(new PasseNoLeitor(controller));
+          controller.nextState(new QueueEstablishment(controller));
         }
         
         this.scroll = [
@@ -301,3 +300,27 @@ var transparent = {'opacity':'0.5'};
       };
       
       QueueEstablishmentType.prototype = ScrollProto;
+      
+      var QueueEstablishment = function(controller) {
+        this.titlebar = "Tasca do Zé"
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.mainscreen = "Deslocamento:\t10 min\nEspera:\t\t 5 min\nTotal:\t\t15 min";
+        this.mainscreenStyle = {'font-size': '10pt', 'text-align': 'left', 'left': '1.2in'};
+        
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
+        
+        this.showRoad = true;
+        this.doRightButton = function() {
+          //temporary
+          controller.goHome();
+        }
+      }
+      
+      QueueEstablishment.prototype = HomeButtonProto;
