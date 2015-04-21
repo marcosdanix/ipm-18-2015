@@ -174,3 +174,40 @@ div.irave-background p {
   top:-2.5%;
   transform: translateX(-40%);
 }
+
+#go-left {
+  font-size: 16pt;
+  font-weight: bold;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+}
+
+#go-right {
+  font-size: 16pt;
+  font-weight: bold;
+  position: absolute;
+  top: 15%;
+  left: 75%;
+}
+
+img.pathbar {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#compass-arrow {  
+  font-size: 300%;  
+  position: absolute;
+  top: 30%;
+  left: 55%;  
+  transform: rotate(-90deg) translateY(-50%);
+}
+
+#distance {
+  position: absolute;
+  top:45%;
+  left: 5%;
+}

@@ -394,5 +394,17 @@ var transparent = {'opacity':'0.5'};
       PathChooseEstablishment.prototype = ScrollProto;
       
       var Path1 = function(controller, name) {
+        this.titlebar = name;
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.goLeft = true;
+        this.goRight = true
+        this.compass = true;
+        this.pathbar1 = true;
+        this.distance = '5 m';
         
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
       }
+      
+      Path1.prototype = HomeButtonProto;
