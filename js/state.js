@@ -5,9 +5,6 @@ var transparent = {'opacity':'0.5'};
       var HomeButtonProto = {
         //middleButtonText: '⌂', 
         showHome: true,
-        doMiddleButton: function() {
-          controller.goHome();
-        },
       };
 
       var ScrollProto = {
@@ -52,7 +49,9 @@ var transparent = {'opacity':'0.5'};
         this.titlebar = "Menu"; 
         this.index = 0;
         
-        
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
         
         this.rightButtonText = '→';
         this.doRightButton = function() {
@@ -96,6 +95,9 @@ var transparent = {'opacity':'0.5'};
           controller.prevState();
         }
         
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
       }
       
       PasseNoLeitor.prototype = HomeButtonProto;
@@ -143,6 +145,9 @@ var transparent = {'opacity':'0.5'};
         this.titlebar = "Pagar";
         this.mainscreen = 'SUCESSO\n(thumbs up)\nSaldo: '.concat(controller.currencyFilter(controller.saldo, '€'));
       
+        this.doMiddleButton = function() {
+          controller.goHome();
+        };
       
         this.showCart = true;
         this.doRightButton = function() {
@@ -164,6 +169,9 @@ var transparent = {'opacity':'0.5'};
           controller.prevState();
         }
         
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
       }
       
       PurchaseFailure.prototype = HomeButtonProto;
@@ -186,6 +194,9 @@ var transparent = {'opacity':'0.5'};
         this.titlebarStyle = {'font-size': '8pt'};
         this.index = 0;
         
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
         
         this.leftButtonText = '←';
         this.doLeftButton = function() {
@@ -221,6 +232,9 @@ var transparent = {'opacity':'0.5'};
         this.titlebarStyle = {'font-size': '9pt'};
         this.index = 0;
         
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
         
         this.leftButtonText = '←';
         this.doLeftButton = function() {
@@ -258,6 +272,9 @@ var transparent = {'opacity':'0.5'};
         this.titlebarStyle = {'font-size': '9pt'};
         this.index = 0;
         
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
         
         this.leftButtonText = '←';
         this.doLeftButton = function() {
@@ -297,7 +314,9 @@ var transparent = {'opacity':'0.5'};
           controller.prevState();
         }
         
-       
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
         
         this.showRoad = true;
         this.doRightButton = function() {
