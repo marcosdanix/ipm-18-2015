@@ -336,6 +336,10 @@ var transparent = {'opacity':'0.5'};
           controller.prevState();
         }
         
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
+        
         this.rightButtonText = '→';
         this.doRightButton = function() {
           controller.nextState(new PathChooseEstablishment(controller));
@@ -362,6 +366,10 @@ var transparent = {'opacity':'0.5'};
         this.leftButtonText = '←';
         this.doLeftButton = function() {
           controller.prevState();
+        }
+        
+        this.doMiddleButton = function() {
+          controller.goHome();
         }
         
         this.rightButtonText = '→';
