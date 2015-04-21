@@ -375,7 +375,7 @@ var transparent = {'opacity':'0.5'};
         this.rightButtonText = '→';
         this.doRightButton = function() {
           var name = this.scroll[this.index+1];
-          controller.nextState(new Path1(controller, name));
+          controller.nextState(new Path1(controller, name, true));
         }
         this.scroll = [
           '¯¯¯¯¯',
@@ -393,18 +393,106 @@ var transparent = {'opacity':'0.5'};
       
       PathChooseEstablishment.prototype = ScrollProto;
       
-      var Path1 = function(controller, name) {
+      var Path1 = function(controller, name, pathFeature) {
         this.titlebar = name;
         this.titlebarStyle = {'font-size': '9pt'};
         this.goLeft = true;
-        this.goRight = true
         this.compass = true;
         this.pathbar1 = true;
         this.distance = '5 m';
         
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
         this.doMiddleButton = function() {
           controller.goHome();
+        }
+        
+        this.continuePath = function() {
+          //Don't push this state.
+          controller.state = new Path2(controller, name, pathFeature);
         }
       }
       
       Path1.prototype = HomeButtonProto;
+      
+      var Path2 = function(controller, name, pathFeature) {
+        this.titlebar = name;
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.goRight = true;
+        this.compass = true;
+        this.pathbar2 = true;
+        this.distance = '10 m';
+        
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
+        
+        this.continuePath = function() {
+          //Don't push this state.
+          controller.state = new Path3(controller, name, pathFeature);
+        }
+      }
+      
+      Path2.prototype = HomeButtonProto;
+      
+      var Path3 = function(controller, name, pathFeature) {
+        this.titlebar = name;
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.compass = true;
+        this.pathbar3 = true;
+        this.distance = '6 m';
+        
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
+        
+        this.continuePath = function() {
+          //Don't push this state.
+          controller.state = new PathFinished(controller, name, pathFeature);
+        }
+      }
+      
+      Path3.prototype = HomeButtonProto;
+      
+      var PathFinished = function(controller, name, pathFeature) {
+        this.titlebar = name;
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.pathfinish = true;
+        
+        this.mainscreen = "CHEGOU";
+        
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
+        
+        if (pathFeature) {
+          this.rightButtonText = '+';
+          this.doRightButton = function() {
+            controller.stateStack.pop();
+            controller.prevState();
+          }
+        }
+        
+      }
+      
+      PathFinished.prototype = HomeButtonProto;
+      
+     

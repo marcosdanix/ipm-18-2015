@@ -71,13 +71,14 @@
          ng-repeat="scrollElement in screen.state.visibleScrollElements">{{scrollElement}}</li>
    </ul>
 
-   <div ng-show="screen.state.compass" id="compass-arrow">&#10146;</div>
+   <div ng-click="screen.state.continuePath()" ng-show="screen.state.compass" id="compass-arrow">&#10146;</div>
    <div id="distance">{{screen.state.distance}}</div>
    
    <!-- Workaround since ng-src can't use local filesystem -->
    <img ng-show="screen.state.pathbar1" class="pathbar" src="img/path_bar1.png"></img>   
-   <!-- <img ng-show="screen.state.pathbar2" class="pathbar" src="img/path_bar2.png"></img> -->
-   <!-- <img ng-show="screen.state.pathbar3" class="pathbar" src="img/path_bar3.png"></img> -->
+   <img ng-show="screen.state.pathbar2" class="pathbar" src="img/path_bar2.png"></img>
+   <img ng-show="screen.state.pathbar3" class="pathbar" src="img/path_bar3.png"></img>
+   <img ng-show="screen.state.pathfinish" class="pathbar" src="img/path_finish.png"></img>
 </div>
 
 <img id="leftbutton"  ng-click="screen.state.doLeftButton()"   src="img/button.png"></img>
