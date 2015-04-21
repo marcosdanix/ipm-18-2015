@@ -129,7 +129,7 @@ var transparent = {'opacity':'0.5'};
           controller.goHome();
         }
         
-        this.rightButtonText = '→';
+        this.rightButtonText = '✓';
         this.doRightButton = function() {
           this.undo();
           controller.saldo -= 3.00;
