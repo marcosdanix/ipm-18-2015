@@ -1,5 +1,6 @@
 var transparent = {'opacity':'0.5'};
-      
+
+
       //Prototypes
       var HomeButtonProto = {
         //middleButtonText: '⌂', 
@@ -58,6 +59,7 @@ var transparent = {'opacity':'0.5'};
           switch (this.index) {
           case 0 : controller.nextState(new PasseNoLeitor(controller)); break;
           case 1 : controller.nextState(new QueueSelectEstablishment(controller)); break;
+          case 2 : controller.nextState(new PathChooseEstablishmentType(controller)); break;
           default: controller.nextState(new NotImplemented(controller));
           }
         }
@@ -299,9 +301,71 @@ var transparent = {'opacity':'0.5'};
         
         this.showRoad = true;
         this.doRightButton = function() {
-          //temporary
-          controller.goHome();
+          controller.nextState(new Path1(controller, this.titlebar));          
         }
       }
       
       QueueEstablishment.prototype = HomeButtonProto;
+      
+      var PathChooseEstablishmentType = function(controller) {
+        this.titlebar = 'Escolha tipo de local'
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.index = 0;
+                
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.rightButtonText = '→';
+        this.doRightButton = function() {
+          controller.nextState(new PathChooseEstablishment(controller));
+        }
+        this.scroll = [
+          '¯¯¯¯¯',
+          'Bebida',
+          'Comida',
+          'Higiene',
+          '_____'
+        ];
+        this.maxIndex = this.scroll.length-3;
+        
+        this.updateScroll();
+      }
+      
+      PathChooseEstablishmentType.prototype = ScrollProto;
+      
+      var PathChooseEstablishment = function(controller) {
+        this.titlebar = 'Escolha local'
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.index = 0;
+                
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.rightButtonText = '→';
+        this.doRightButton = function() {
+          var name = this.scroll[this.index+1];
+          controller.nextState(new Path1(controller, name));
+        }
+        this.scroll = [
+          '¯¯¯¯¯',
+          'Bar do Manel',
+          'Tasca do Zé',
+          'Estab. X103',
+          '_____'
+        ];
+        this.maxIndex = this.scroll.length-3;        
+        this.scrollStyle = {'left': '-5%', 'top' : '25%'};
+        this.scrollElementStyle = {'font-size': '10pt'};
+        
+        this.updateScroll();
+      }
+      
+      PathChooseEstablishment.prototype = ScrollProto;
+      
+      var Path1 = function(controller, name) {
+        
+      }
