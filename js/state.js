@@ -12,6 +12,19 @@ var transparent = {'opacity':'0.5'};
           this.visibleScrollElements = this.scroll.slice(this.index, this.index+3);
           this.moreUpStyle = this.index == 0 ? transparent : undefined;
           this.moreDownStyle = this.index == this.maxIndex ? transparent : undefined;
+        },
+        scrollUp: function() {
+          if (this.index > 0) {
+            this.index -= 1;
+            this.updateScroll();
+          }
+        },     
+
+        scrollDown: function() {
+          if (this.index < this.maxIndex) {
+            this.index += 1;
+            this.updateScroll();
+          }
         },        
       };
       
@@ -41,10 +54,10 @@ var transparent = {'opacity':'0.5'};
         
         this.rightButtonText = '→';
         this.doRightButton = function() {
-          if (this.index == 0) {
-            controller.nextState(new PasseNoLeitor(controller));
-          } else {
-            controller.nextState(new NotImplemented(controller));
+          switch (this.index) {
+          case 0 : controller.nextState(new PasseNoLeitor(controller)); break;
+          case 1 : controller.nextState(new QueueSelectEstablishment(controller)); break;
+          default: controller.nextState(new NotImplemented(controller));
           }
         }
         
@@ -59,21 +72,7 @@ var transparent = {'opacity':'0.5'};
           'Meteo',
           '_____'
         ];
-        this.maxIndex = this.scroll.length-3;
-        
-        this.scrollUp = function() {
-          if (this.index > 0) {
-            this.index -= 1;
-            this.updateScroll();
-          }
-        };        
-
-        this.scrollDown = function() {
-          if (this.index < this.maxIndex) {
-            this.index += 1;
-            this.updateScroll();
-          }
-        }        
+        this.maxIndex = this.scroll.length-3;      
         
         this.updateScroll();
       };
@@ -187,3 +186,118 @@ var transparent = {'opacity':'0.5'};
           controller.prevState();
         }
       }
+      
+      var QueueSelectEstablishment = function(controller) {
+        this.titlebar = "Escolha tipo de Establecimento"
+        this.titlebarStyle = {'font-size': '8pt'};
+        this.index = 0;
+        
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
+        
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.rightButtonText = '→';
+        this.doRightButton = function() {
+          switch (this.index) {
+          case 0 : controller.nextState(new QueueChooseDrink(controller)); break;
+          default: controller.nextState(new NotImplemented(controller));
+          }
+        }
+        
+        this.scroll = [
+          '¯¯¯¯¯',
+          'Bebida',
+          'Comida',
+          'Bilheteira',
+          '_____'
+        ];
+        this.maxIndex = this.scroll.length-3;
+        //this.scrollElementStyle = {'font-size': '11pt'};     
+        
+        this.updateScroll();
+      };
+      
+      QueueSelectEstablishment.prototype = ScrollProto;
+      
+      var QueueChooseDrink = function(controller) {
+        
+        this.titlebar = "Escolha Bebida"
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.index = 0;
+        
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
+        
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.rightButtonText = '→';
+        this.doRightButton = function() {
+          controller.nextState(new QueueEstablishmentType(controller));
+        }
+        
+        this.scroll = [
+          '¯¯¯¯¯',
+          'Sagres',
+          'Super Bock',
+          'Refrigerante',
+          'Água',
+          'Cerveja s/alcool',
+          '_____'
+        ];
+        this.maxIndex = this.scroll.length-3;
+        this.scrollStyle = {'left': '-10%', 'top' : '25%'};
+        this.scrollElementStyle = {'font-size': '10pt'};
+        
+       
+        
+        this.updateScroll();
+      };
+      
+      QueueChooseDrink.prototype = ScrollProto;
+      
+      var QueueEstablishmentType = function(controller) {
+        
+        this.titlebar = "Escolha Tipo"
+        this.titlebarStyle = {'font-size': '9pt'};
+        this.index = 0;
+        
+        this.doMiddleButton = function() {
+          controller.goHome();
+        }
+        
+        this.leftButtonText = '←';
+        this.doLeftButton = function() {
+          controller.prevState();
+        }
+        
+        this.rightButtonText = '→';
+        this.doRightButton = function() {
+          //placeholder
+          controller.nextState(new PasseNoLeitor(controller));
+        }
+        
+        this.scroll = [
+          '¯¯¯¯¯',
+          'Estab. mais próximo',
+          'Fila mais curta',
+          'Menor espera',          
+          '_____'
+        ];
+        this.maxIndex = this.scroll.length-3;
+        this.scrollStyle = {'left': '-15%', 'top' : '25%'};
+        this.scrollElementStyle = {'font-size': '9pt'};
+               
+        
+        this.updateScroll();
+      };
+      
+      QueueEstablishmentType.prototype = ScrollProto;
