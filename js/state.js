@@ -56,22 +56,22 @@ var transparent = {'opacity':'0.5'};
         this.rightButtonText = '→';
         this.doRightButton = function() {
           switch (this.index) {
-          case 0 : controller.nextState(new PasseNoLeitor(controller)); break;
-          case 1 : controller.nextState(new QueueSelectEstablishment(controller)); break;
-          case 2 : controller.nextState(new PathChooseEstablishmentType(controller)); break;
+          case 4 : controller.nextState(new PasseNoLeitor(controller)); break;
+          case 2 : controller.nextState(new QueueSelectEstablishment(controller)); break;
+          case 5 : controller.nextState(new PathChooseEstablishmentType(controller)); break;
           default: controller.nextState(new NotImplemented(controller));
           }
         }
         
         this.scroll = [
           '¯¯¯¯¯',
-          'Pagar',
-          'Fila',
-          'Percurso',
           'Amigos',
-          'Transferir',
           'Concertos',
+          'Fila',
           'Meteo',
+          'Pagar',          
+          'Percurso',          
+          'Transferir',
           '_____'
         ];
         this.maxIndex = this.scroll.length-3;      
@@ -110,9 +110,9 @@ var transparent = {'opacity':'0.5'};
         this.moreDownStyle = {'opacity': '0.5'};
         this.visibleScrollElements = [
           'Total: €3.00',
-          '------------',
+          '\n',
           '3 Cervejas:',
-          '.........€3.00'
+          '........3×€1.00'
         ];
         $('ul.scroll').css('top', '10%').css('left', '-10%');
         
