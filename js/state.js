@@ -64,7 +64,7 @@ var transparent = {'opacity':'0.5'};
         }
         
         this.scroll = [
-          '¯¯¯¯¯',
+          '\n',
           'Amigos',
           'Concertos',
           'Fila',
@@ -72,7 +72,7 @@ var transparent = {'opacity':'0.5'};
           'Pagar',          
           'Percurso',          
           'Transferir',
-          '_____'
+          '\n'
         ];
         this.maxIndex = this.scroll.length-3;      
         
@@ -212,11 +212,11 @@ var transparent = {'opacity':'0.5'};
         }
         
         this.scroll = [
-          '¯¯¯¯¯',
+          '\n',
           'Bebida',
           'Comida',
           'Bilheteira',
-          '_____'
+          '\n'
         ];
         this.maxIndex = this.scroll.length-3;
         this.updateScroll();
@@ -245,12 +245,12 @@ var transparent = {'opacity':'0.5'};
         }
         
         this.scroll = [
-          '¯¯¯¯¯',
+          '\n',
           'Cerveja',
           'Refrigerante',
           'Água',
           'Cerveja s/alcool',
-          '_____'
+          '\n'
         ];
         this.maxIndex = this.scroll.length-3;
         this.scrollStyle = {'left':'-5%'};
@@ -280,11 +280,11 @@ var transparent = {'opacity':'0.5'};
         }
         
         this.scroll = [
-          '¯¯¯¯¯',
+          '\n',
           'Estab. mais próximo',
           'Fila mais curta',
           'Menor espera',          
-          '_____'
+          '\n'
         ];
         this.maxIndex = this.scroll.length-3;
         this.scrollStyle = {'left': '-15%'};
@@ -335,11 +335,11 @@ var transparent = {'opacity':'0.5'};
           controller.nextState(new PathChooseEstablishment(controller));
         }
         this.scroll = [
-          '¯¯¯¯¯',
+          '\n',
           'Bebida',
           'Comida',
           'Higiene',
-          '_____'
+          '\n'
         ];
         this.maxIndex = this.scroll.length-3;
         
@@ -368,11 +368,11 @@ var transparent = {'opacity':'0.5'};
           controller.nextState(new Path1(controller, name, true));
         }
         this.scroll = [
-          '¯¯¯¯¯',
+          '\n',
           'Bar do Manel',
           'Tasca do Zé',
           'Estab. X103',
-          '_____'
+          '\n'
         ];
         this.maxIndex = this.scroll.length-3;
         this.scrollStyle = {'left': '-5%'};
