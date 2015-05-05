@@ -246,14 +246,14 @@ var transparent = {'opacity':'0.5'};
         
         this.scroll = [
           '¯¯¯¯¯',
-          'Sagres',
-          'Super Bock',
+          'Cerveja',
           'Refrigerante',
           'Água',
           'Cerveja s/alcool',
           '_____'
         ];
         this.maxIndex = this.scroll.length-3;
+        this.scrollStyle = {'left':'-5%'};
         this.updateScroll();
       };
       
