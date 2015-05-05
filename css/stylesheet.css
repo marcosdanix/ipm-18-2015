@@ -212,3 +212,8 @@ img.pathbar {
   top:45%;
   left: 5%;
 }
+
+#highlighted {
+  background-color: #9F9FFF;
+  width: 100%;
+}
