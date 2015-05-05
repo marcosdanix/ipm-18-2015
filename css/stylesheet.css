@@ -125,11 +125,12 @@ div.scrollPointer .right {
 ul.scroll {
   list-style-type: none;
   position: absolute;
-  top:22%;  
+  top:26%;  
 }
 
 li.scroll-element {
   white-space: pre-wrap;
+  font-size: 9pt;
 }
 
 #leftbutton {

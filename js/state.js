@@ -219,8 +219,6 @@ var transparent = {'opacity':'0.5'};
           '_____'
         ];
         this.maxIndex = this.scroll.length-3;
-        //this.scrollElementStyle = {'font-size': '11pt'};     
-        
         this.updateScroll();
       };
       
@@ -256,11 +254,6 @@ var transparent = {'opacity':'0.5'};
           '_____'
         ];
         this.maxIndex = this.scroll.length-3;
-        this.scrollStyle = {'left': '-10%', 'top' : '25%'};
-        this.scrollElementStyle = {'font-size': '10pt'};
-        
-       
-        
         this.updateScroll();
       };
       
@@ -294,10 +287,7 @@ var transparent = {'opacity':'0.5'};
           '_____'
         ];
         this.maxIndex = this.scroll.length-3;
-        this.scrollStyle = {'left': '-15%', 'top' : '25%'};
-        this.scrollElementStyle = {'font-size': '9pt'};
-               
-        
+        this.scrollStyle = {'left': '-15%'};
         this.updateScroll();
       };
       
@@ -384,10 +374,8 @@ var transparent = {'opacity':'0.5'};
           'Estab. X103',
           '_____'
         ];
-        this.maxIndex = this.scroll.length-3;        
-        this.scrollStyle = {'left': '-5%', 'top' : '25%'};
-        this.scrollElementStyle = {'font-size': '10pt'};
-        
+        this.maxIndex = this.scroll.length-3;
+        this.scrollStyle = {'left': '-5%'};
         this.updateScroll();
       }
       
