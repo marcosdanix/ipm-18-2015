@@ -472,7 +472,7 @@ var transparent = {'opacity':'0.5'};
         }
         
         if (pathFeature) {
-          this.rightButtonText = '+';
+        this.showRoadPlus = true;
           this.doRightButton = function() {
             controller.stateStack.pop();
             controller.prevState();
