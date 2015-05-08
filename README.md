@@ -6,4 +6,4 @@
 
 [Preview online](http://marcosdanix.github.io/ipm-18-2015)
 
-Este prótotipo foi desenvolvido e testado no browser Chrome, de preferência no sistema operativo Windows.
+Este prótotipo foi desenvolvido e testado no browser Chrome em Windows.
