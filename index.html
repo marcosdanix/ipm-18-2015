@@ -56,8 +56,8 @@
    
    <!-- scroll -->
    <div class="scrollPointer" ng-show="screen.state.hasScroll">
-     <div class="left">  &gt </div>
-     <div class="right"> &lt </div>
+     <div class="left"  ng-hide="screen.state.hideSelection"> &gt </div>
+     <div class="right" ng-hide="screen.state.hideSelection"> &lt </div>
      <!-- mudar estilo consoante se há mais ou não -->
      <div id="more-up"   
           ng-style="screen.state.moreUpStyle">

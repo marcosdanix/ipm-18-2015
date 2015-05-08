@@ -137,6 +137,8 @@ var transparent = {'opacity':'0.5'};
           controller.saldo -= 3.00;
           controller.nextState(new PurchaseSuccess(controller));
         };
+        
+        this.hideSelection = true;
       }
       
       ItemsBought.prototype = HomeButtonProto;
