@@ -298,7 +298,7 @@ var transparent = {'opacity':'0.5'};
       var QueueEstablishment = function(controller) {
         this.titlebar = "Tasca do Zé"
         this.titlebarStyle = {'font-size': '9pt'};
-        this.mainscreen = "Deslocamento:\t10 min\nEspera:\t\t\t5 min\nTotal:\t\t\t15 min";
+        this.mainscreen = "Deslocamento:\t10 min\nEspera:\t\t5 min\nTotal:\t\t15 min";
         this.mainscreenStyle = {'font-size': '9pt', 'text-align': 'left', 'left': '1.2in'};
         
         this.leftButtonText = '←';
