@@ -296,8 +296,8 @@ var transparent = {'opacity':'0.5'};
       var QueueEstablishment = function(controller) {
         this.titlebar = "Tasca do Zé"
         this.titlebarStyle = {'font-size': '9pt'};
-        this.mainscreen = "Deslocamento:\t10 min\nEspera:\t\t 5 min\nTotal:\t\t15 min";
-        this.mainscreenStyle = {'font-size': '10pt', 'text-align': 'left', 'left': '1.2in'};
+        this.mainscreen = "Deslocamento:\t10 min\nEspera:\t\t\t5 min\nTotal:\t\t\t15 min";
+        this.mainscreenStyle = {'font-size': '9pt', 'text-align': 'left', 'left': '1.2in'};
         
         this.leftButtonText = '←';
         this.doLeftButton = function() {
@@ -338,7 +338,7 @@ var transparent = {'opacity':'0.5'};
           '\n',
           'Bebida',
           'Comida',
-          'Higiene',
+          'WC',
           '\n'
         ];
         this.maxIndex = this.scroll.length-3;
