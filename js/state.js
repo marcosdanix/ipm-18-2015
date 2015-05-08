@@ -334,7 +334,7 @@ var transparent = {'opacity':'0.5'};
         
         this.rightButtonText = '→';
         this.doRightButton = function() {
-          controller.nextState(new PathChooseEstablishment(controller));
+          controller.nextState(new PathChooseEstablishment(controller, this.scroll[this.index+1]));
         }
         this.scroll = [
           '\n',
@@ -350,9 +350,9 @@ var transparent = {'opacity':'0.5'};
       
       PathChooseEstablishmentType.prototype = ScrollProto;
       
-      var PathChooseEstablishment = function(controller) {
-        this.titlebar = 'Escolha local'
-        this.titlebarStyle = {'font-size': '9pt'};
+      var PathChooseEstablishment = function(controller, type) {
+        this.titlebar = type + '\nEscolha local'
+        this.titlebarStyle = {'font-size': '8pt'};
         this.index = 0;
                 
         this.leftButtonText = '←';
