@@ -192,7 +192,7 @@ var transparent = {'opacity':'0.5'};
       }
       
       var QueueSelectEstablishment = function(controller) {
-        this.titlebar = "Escolha tipo de Establecimento"
+        this.titlebar = "Escolha tipo de Produto"
         this.titlebarStyle = {'font-size': '8pt'};
         this.index = 0;
         
